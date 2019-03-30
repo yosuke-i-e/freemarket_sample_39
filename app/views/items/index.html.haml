@@ -1,0 +1,79 @@
+.item-wrapper
+  .owl-carousel.owl-theme
+    .item{:style => "width: 1440px"}
+      .banner__hajimeru-fortune
+    .item{:style => "width: 1440px"}
+      .banner__featured-hobby
+    .item{:style => "width: 1440px"}
+      .banner__main
+        %h2
+          スマホでかんたん
+          %br>/
+          フリマアプリ
+        %p
+          メルカリはスマホカメラからすぐに出品できる
+          %br>/
+          購入時も安心な独自システムのアプリです
+        .app-store
+          %a.app-store__itunes{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+            = image_tag('app-store.svg')
+          %a.app-store__google-play{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+            = image_tag('google-play.svg')
+        .app-store-image
+          = image_tag('main_content_pc.png', class: 'app-store-image2')
+    .item{:style => "width: 1440px"}
+      .banner__new-cm
+    .item{:style => "width: 1440px"}
+      .banner__bokurano-heisei
+  .main-contents
+    %h2.h2-category ピックアップカテゴリー
+    .heading
+      = link_to 'レディース新着アイテム', 'root_path'
+    .item-list
+      = render 'items'
+    .show-all
+      = link_to 'すべての商品を見る', 'root_path'
+    .heading
+      = link_to 'メンズ新着アイテム', 'root_path'
+    .item-list
+      = render 'items'
+    .show-all
+      = link_to 'すべての商品を見る', 'root_path'
+    .heading
+      = link_to 'ベビー・キッズ新着アイテム', 'root_path'
+    .item-list
+      = render 'items'
+    .show-all
+      = link_to 'すべての商品を見る', 'root_path'
+    .heading
+      = link_to 'コスメ・香水・美容新着アイテム', 'root_path'
+    .item-list
+      = render 'items'
+    .show-all
+      = link_to 'すべての商品を見る', 'root_path'
+    %h2.h2-brand ピックアップブランド
+    .heading
+      = link_to 'シャネル新着アイテム', 'root_path'
+    .item-list
+      = render 'items'
+    .show-all
+      = link_to 'すべての商品を見る', 'root_path'
+    .heading
+      = link_to 'ルイヴィトン新着アイテム', 'root_path'
+    .item-list
+      = render 'items'
+    .show-all
+      = link_to 'すべての商品を見る', 'root_path'
+    .heading
+      = link_to 'シュプリーム新着アイテム', 'root_path'
+    .item-list
+      = render 'items'
+    .show-all
+      = link_to 'すべての商品を見る', 'root_path'
+    .heading
+      = link_to 'ナイキ新着アイテム', 'root_path'
+    .item-list
+      = render 'items'
+    .show-all
+      = link_to 'すべての商品を見る', 'root_path'
+

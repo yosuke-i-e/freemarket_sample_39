@@ -1,0 +1,232 @@
+.header {
+  position: relative;
+  margin: 0 10%;
+  padding-bottom: 40px;
+}
+
+.logo {
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+.top-form {
+  float: left;
+  position: absolute;
+  top: 0px;
+  left: 100px;
+}
+
+input.top-form {
+  width: 860px;
+  height: 32px;
+  background-color: #fafafa;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-shadow: none;
+  font-size: 16px;
+  &__submit {
+    position: absolute;
+    top: 5px;
+    left: 930px;
+    display: none;
+  }
+}
+.search-icon {
+  position: absolute;
+  top: 5px;
+  left: 930px;
+}
+
+.top-list {
+  float: left;
+  padding: 10px 0;
+  font-size: $top-list-size;
+  line-height: 30px;
+  position: absolute;
+  a {
+    color: black;
+  }
+  a:hover {
+    color: #0099e8;
+  }
+  &__right {
+    float: right;
+    padding: 10px 5%;
+    font-size: $top-list-size;
+    position: relative;
+    line-height: 30px;
+    li {
+      display: inline-block;
+      margin: 0 5px;
+      .mypage-dropdown {
+        display: none;
+      }
+      a:hover {
+        color: #0099e8;
+      }
+    }
+    li:hover {
+      .mypage-dropdown {
+        display: block;
+        position: absolute;
+        right: 50px;
+        padding-bottom: 30px;
+        z-index: 11;
+        background-color: white;
+        &__image {
+          background-image: image-url("user-bg.jpg");
+          padding-bottom: 10px;
+          width: 300px;
+          z-index: 12;
+          text-align: center;
+          &--photo {
+            height: 50px;
+            border-radius: 50%;
+            position: relative;
+            top: 20px;
+          }
+        }
+        &__name {
+          text-align: center;
+          margin-top: 10px;
+          font-size: 15px;
+        }
+        ul {
+          text-align: center;
+        }
+        &__upper-box {
+          @include mypage-dropdown-box;
+          li {
+            @include mypage-dropdown-box-list;
+            text-align: left;
+            a {
+              width: 100%;
+              display: block;
+              position: absolute;
+            }
+          }
+        }
+        &__upper-box-float {
+          float: right;
+          margin-right: 15px;
+          li {
+            @include mypage-dropdown-box-list(block, none, 40px, 40px)
+          }
+          li:after {
+            content:"＞";
+            color: gray;
+          }
+        }
+        &__bottom-box {
+          @include mypage-dropdown-box(0, #f3f3f3);
+          margin-top: 10px;
+          li {
+            @include mypage-dropdown-box-list;
+            text-align: left;
+            a {
+              width: 100%;
+              display: block;
+              position: absolute;
+            }
+          }
+        }
+        &__bottom-box-float {
+          float: right;
+          margin-top: 10px;
+          margin-right: 15px;
+          li {
+            @include mypage-dropdown-box-list(block, none, 40px, 40px)
+          }
+          li:after {
+            content:"＞";
+            color: gray;
+          }
+        }
+      }
+    }
+    a {
+      color: black;
+    }
+    &--login {
+      background-color: #ea352d;
+      border-radius: 4px;
+      text-align: center;
+      color: white;
+      padding: 0 10px;
+    }
+    &--reg {
+      border: solid 1px $blue;
+      border-radius: 4px;
+      text-align: center;
+      color: $blue;
+      padding: 0 10px;
+    }
+  }
+}
+
+ul.top-list-dropdown {
+  li {
+    display: inline-block;
+  }
+  ul {
+    display: none;
+    position: absolute;
+  }
+  li:hover {
+    ul {
+      display: block;
+      z-index: 2;
+      margin: 0;
+      padding: 0;
+      width: 12em;
+      border: solid 0.5px gray;
+      li {
+        display: block;
+        a {
+          background-color: white;
+          line-height: 50px;
+          display: block;
+        }
+        a:hover {
+          background-color: $red;
+          color: white;
+        }
+        ul {
+          display: none;
+        }
+      }
+      li:hover {
+        ul {
+          @include dropdown-list;
+          li {
+            a:hover {
+              background-color: gray;
+              color: black;
+            }
+            ul {
+              display: none;
+            }
+          }
+          li:hover {
+            ul {
+              @include dropdown-list;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.user-photo-top {
+  border-radius: 20px;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 5px;
+  left: 5%;
+}
+
+a {
+  clear: both;
+}
