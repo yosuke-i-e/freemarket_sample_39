@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190327062554) do
+ActiveRecord::Schema.define(version: 20190403055723) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20190327062554) do
 
   create_table "item_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "body",       null: false
-    t.integer  "item_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "item_id"
     t.index ["item_id"], name: "index_item_images_on_item_id", using: :btree
   end
 
@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 20190327062554) do
     t.string   "state",                       null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "categories_id"
-    t.integer  "regions_id"
-    t.index ["categories_id"], name: "index_items_on_categories_id", using: :btree
-    t.index ["regions_id"], name: "index_items_on_regions_id", using: :btree
+    t.integer  "region_id"
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.index ["region_id"], name: "index_items_on_region_id", using: :btree
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20190327062554) do
   end
 
   add_foreign_key "item_images", "items"
-  add_foreign_key "items", "categories", column: "categories_id"
-  add_foreign_key "items", "regions", column: "regions_id"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "regions"
   add_foreign_key "items", "users"
 end
